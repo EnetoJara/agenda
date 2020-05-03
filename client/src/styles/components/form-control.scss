@@ -1,0 +1,48 @@
+.form-control {
+    flex: 1;
+    display: block;
+    margin: 1rem 0;
+    width: 100%;
+    color: inherit;
+    transition: .5s;
+
+    input {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid ;
+        border: 0;
+        border-bottom: solid 1px #666;
+        padding: 1rem;
+        outline: 0;
+        cursor: pointer;
+
+        &:focus {
+            border-bottom: solid 1px $primary-color-light;
+        }
+    }
+
+    label:focus-within {
+        color: $primary-color;
+    }
+
+    &.has-error {
+        color: red;
+
+        input {
+            border-bottom: solid 1px red;
+        }
+    }
+
+}
+
+@include bg-cell {
+    .form-control input {
+        width: 27.5rem;
+    }
+}
+
+@include tablet-xl {
+    .form-control input {
+        width: 20rem;
+    }
+}

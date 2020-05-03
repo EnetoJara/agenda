@@ -1,0 +1,86 @@
+.app-layout {
+    box-sizing: $b-box;
+    width: $max-width;
+    height: $max-height;
+    margin: $zero;
+    padding: $zero;
+    display: flex;
+
+    &-side-nav {
+        display: none;
+        background-color: $primary-color-light;
+        transition: .4s;
+    }
+
+    &-main {
+        flex: 1;
+    }
+
+    &-header {
+        background-color: $primary-color;
+    }
+
+    &-row {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-column {
+        width: 100%;
+    }
+}
+
+.toggle {
+    display: block;
+    width: 25rem;
+}
+
+.title {
+    margin: 2rem;
+    text-align: center;
+}
+
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin: 5rem 0;
+
+    &__title {
+        margin: 2rem;
+    }
+
+    &__form {
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-flow: row;
+            margin: 1rem;
+        }
+    }
+}
+
+.list-page {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@include bg-cell {
+    .app-layout-column {
+        flex: 1
+    }
+}
+
+@include tablet-xl {
+    .app-layout-column {
+        flex: 1;
+        margin: 0 1rem;
+    }
+}

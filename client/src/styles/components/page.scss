@@ -1,0 +1,33 @@
+.app-layout-page {
+    margin:2rem;
+    padding: 0 2rem;
+    box-shadow: $shadow;
+    background-color: white;
+    max-width: 100rem;
+
+    .page-title {
+        text-align: center;
+        color: #666;
+        text-shadow: 2px 2px 4px $primary-color-dark;
+        margin: 3rem;
+    }
+}
+
+@include bg-cell {
+    .app-layout-page {
+        margin:4rem;
+        padding: 0 4rem;
+    }
+}
+
+@include tablet-xl {
+    .app-layout-page {
+        margin:10rem 4rem;
+    }
+}
+
+@include laptop-xl {
+    .app-layout-page {
+        margin:10rem auto;
+    }
+}

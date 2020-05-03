@@ -1,0 +1,58 @@
+version: '3.7'
+services:
+  nginx:
+    build: ./nginx
+    links:
+      - app1:app1
+      - app2:app2
+      - app3:app3
+    ports:
+      - "80:80"
+
+  app1:
+    build: ./rest-api
+    links:
+      - db
+    environment:
+      PORT: 3000
+      DB_CONNECTION: postgres://user:password@db/rest_agenda_api
+      NODE_ENV: "production"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  app2:
+    build: ./rest-api
+    links:
+      - db
+    environment:
+      PORT: 3000
+      DB_CONNECTION: postgres://user:password@db/rest_agenda_api
+      NODE_ENV: "production"
+    ports:
+      - "3001:3000"
+    depends_on:
+      - db
+
+  app3:
+    build: ./rest-api
+    links:
+      - db
+    environment:
+      PORT: 3000
+      DB_CONNECTION: postgres://user:password@db/rest_agenda_api
+      NODE_ENV: "production"
+    ports:
+      - "3002:3000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=rest_agenda_api
+    ports:
+      - "5433:5433"

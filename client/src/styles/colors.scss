@@ -1,0 +1,25 @@
+@import "./constants.scss";
+
+$background-color: #eee;
+$font-color: #666;
+$primary-color: $color-teal;
+$primary-color-dark: darken($primary-color, $modified);
+$primary-color-light: lighten($primary-color, $modified);
+
+$secondary-color: $color-yellow;
+$secondary-color-dark: darken($secondary-color, $modified);
+$secondary-color-light: lighten($secondary-color, $modified);
+
+$danger-color: $color-danger;
+$danger-color-dark: darken($danger-color, $modified);
+$danger-color-light: lighten($danger-color, $modified);
+
+$success-color: $color-cyan;
+$success-color-dark: darken($success-color, $modified);
+$success-color-light: lighten($success-color, $modified);
+
+$warning-color: $color-orange;
+$warning-color-dark: darken($warning-color, $modified);
+$warning-color-light: lighten($warning-color, $modified);
+
+$white-color: #fff;

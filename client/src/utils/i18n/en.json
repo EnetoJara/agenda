@@ -1,0 +1,36 @@
+{
+    "APP_COMPONENT": {
+        "HEADER": "header",
+        "SIDEBAR": "side bar"
+    },
+    "LOGIN": {
+        "TITLE": "Login",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "BTN_CANCEL": "Cancel",
+        "BTN_SUBMIT": "Login"
+    },
+    "REGISTER": {
+        "FIRST_NAME": "First Name",
+        "SECOND_NAMDE": "Second Name",
+        "LAST_NAME": "Last Name",
+        "SECOND_LAST_NAME": "Second Last Name",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "PASSWORD2": "Confirm Password",
+        "BTN_CANCEL": "Cancel",
+        "BTN_SUBMIT": "Register"
+    },
+    "TABLE": {
+        "TITLE": "Lists",
+        "HEADERS": [
+            {
+                "COLUMN": "Name"
+            },
+            {
+                "COLUMN": "Description"
+            }
+        ],
+        "ADD_LIST": "Add List"
+    }
+}
