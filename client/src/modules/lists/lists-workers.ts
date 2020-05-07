@@ -18,6 +18,32 @@ import { listsAction } from "./lists-actions";
 import { listApi } from "./lists-api";
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export function* getListWorker (action: AppAction<GET_LIST_REQUEST, string>) {
     try {
         const { payload } = action
@@ -53,7 +79,7 @@ export function* getAllListsWorker () {
 
         yield put(listsAction(GET_LISTS_SUCCESS, lists.data));
 
-        return lists.data
+        return lists.data;
     } catch (error) {
         yield put(listsAction(GET_LISTS_FAILED, error));
     }

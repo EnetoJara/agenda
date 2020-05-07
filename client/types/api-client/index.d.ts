@@ -1,6 +1,14 @@
-import { Action } from 'redux';
+import { Action } from "redux";
 
 declare module "@eneto/api-client" {
+
+    interface ApiRes<T> {
+        data: T;
+        statusCode: number;
+        path: string;
+        timestamp?: Date;
+        message?: string;
+    }
 
     interface NewList {
         name: string;

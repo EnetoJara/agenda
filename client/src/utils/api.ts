@@ -1,5 +1,10 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { API_BASE } from './constants';
+
+import { API_BASE } from "./constants";
+
+
+
+
 
 export class Api {
     private api: AxiosInstance;
@@ -40,11 +45,11 @@ export class Api {
         return this.api.head(url, config);
     }
 
-    public post<T, R = AxiosResponse<T>> (url: string, data?: string, config?: AxiosRequestConfig): Promise<R> {
+    public post<T, D, R = AxiosResponse<T>> (url: string, data: D, config?: AxiosRequestConfig): Promise<R> {
         return this.api.post(url, data, config);
     }
 
-    public put<T, R = AxiosResponse<T>> (url: string, data?: string, config?: AxiosRequestConfig): Promise<R> {
+    public put<T, D, R = AxiosResponse<T>> (url: string, data: D, config?: AxiosRequestConfig): Promise<R> {
         return this.api.put(url, data, config);
     }
 

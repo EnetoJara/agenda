@@ -1,7 +1,15 @@
-import { AxiosResponse, AxiosRequestConfig } from "axios";
-import { ListState, NewList } from "@eneto/api-client";
+import { ApiRes, ListState, NewList } from "@eneto/api-client";
+import { AxiosRequestConfig, AxiosResponse } from "axios";
+
 import { Api } from "../../utils/api";
-import { apiConfig, API_LISTS } from "../../utils/constants";
+import { API_LISTS, apiConfig } from "../../utils/constants";
+
+
+
+
+
+
+
 
 /**
  * @description Typedef
@@ -24,16 +32,16 @@ class ListApi extends Api {
             })
     }
 
-    public getLists (): Promise<ListState[]> {
-        return this.get<ListState[]>(API_LISTS)
-            .then((lists: AxiosResponse<ListState[]>) => lists.data)
+    public getLists (): Promise<ApiRes<ListState[]>> {
+        return this.get<ApiRes<ListState[]>>(API_LISTS)
+            .then((lists: AxiosResponse<ApiRes<ListState[]>>) => lists.data)
             .catch((error) => {
                 throw error;
             });
     }
 
     public postNewList (name: string, description: string): Promise<number> {
-        return this.post<number>(API_LISTS, { name, description }).then((response: AxiosResponse<number>) => response.status)
+        return this.post<number, NewList, AxiosResponse<number>>(API_LISTS, { name, description }).then((response: AxiosResponse<number>) => response.status)
     }
 }
 

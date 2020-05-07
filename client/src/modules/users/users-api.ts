@@ -1,8 +1,9 @@
+import { NewUser, UserState } from "@eneto/api-client";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 
 import { Api } from "../../utils/api";
 import { apiConfig } from "../../utils/constants";
-import { UserState, NewUser } from '@eneto/api-client';
+
 
 /**
  * @description Typedef
@@ -24,7 +25,7 @@ class UserApi extends Api {
     }
 
     public insertNewUser (user: NewUser): Promise<number> {
-        return this.post<number>(`/api/v1/users`, {...user})
+        return this.post<number, NewUser>(`/api/v1/users`, {...user})
         .then((res: AxiosResponse<number>) => res.status)
 
     }
