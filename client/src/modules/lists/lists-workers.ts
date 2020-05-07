@@ -1,10 +1,22 @@
-import { put, call } from "redux-saga/effects";
-import { SagaIterator } from "redux-saga";
+import { AppAction, NewList } from "@eneto/api-client";
+import { call, put } from "redux-saga/effects";
+
+import {
+    GET_LIST_FAILED,
+    GET_LIST_REQUEST,
+    GET_LIST_SUCCESS,
+    GET_LISTS_FAILED,
+    GET_LISTS_REQUEST,
+    GET_LISTS_SUCCESS,
+    GET_USERS_REQUEST,
+    POST_LISTS_FAILED,
+    POST_LISTS_REQUEST,
+    POST_LISTS_SUCCESS,
+} from "../../utils/constants";
+import { usersAction } from "../users/users-actions";
 import { listsAction } from "./lists-actions";
 import { listApi } from "./lists-api";
-import { GET_LISTS_SUCCESS, GET_LISTS_FAILED, GET_USERS_REQUEST, POST_LISTS_REQUEST, POST_LISTS_FAILED, POST_LISTS_SUCCESS, GET_LISTS_REQUEST, GET_LIST_REQUEST, GET_LIST_FAILED, GET_LIST_SUCCESS } from "../../utils/constants";
-import { AppAction, NewList } from '@eneto/api-client';
-import { usersAction } from '../users/users-actions';
+
 
 export function* getListWorker (action: AppAction<GET_LIST_REQUEST, string>) {
     try {
@@ -35,7 +47,7 @@ export function* deleteListsWorker () {
     yield console.log("trl");
 }
 
-export function* getAllListsWorker (): SagaIterator<void> {
+export function* getAllListsWorker () {
     try {
         const lists = yield call(listApi.getLists);
 

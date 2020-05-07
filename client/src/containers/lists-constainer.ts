@@ -1,11 +1,13 @@
-import { connect } from "react-redux";
 import { AppState } from "@eneto/api-client";
+import { connect } from "react-redux";
+
 import { LandingPage } from "../components/lists";
 import { lists } from "../modules/lists";
 import { listsAction } from "../modules/lists/lists-actions";
 
+
 const stateToProps = (state: AppState) => ({
-    lists: [...lists(state)],
+    lists: lists(state),
 });
 const dispatchToProps = {
     getListsRequests: listsAction,

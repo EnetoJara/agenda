@@ -1,10 +1,12 @@
+import { ListState, NewList } from "@eneto/api-client";
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import { NewList, ListsState, ListState } from "@eneto/api-client";
+
 import { ListsAction } from "../../modules/lists/lists-actions";
-import { POST_LISTS_REQUEST, GET_LISTS_REQUEST } from "../../utils/constants";
-import {Form} from "./add-list-form"
-import {Table} from "./table";
+import { GET_LISTS_REQUEST, POST_LISTS_REQUEST } from "../../utils/constants";
+import { Form } from "./add-list-form";
+import { Table } from "./table";
+
 export interface LadingPageProps extends RouteComponentProps {
     lists: ListState[];
     getListsRequests: ListsAction;
@@ -12,21 +14,20 @@ export interface LadingPageProps extends RouteComponentProps {
     postList: ListsAction;
 }
 
-export function LandingPage (props: LadingPageProps): React.ReactElement<LadingPageProps> {
-    const [ listName, setListName ] = React.useState<string>("");
-    const [ listDescription, setListDescription ] = React.useState<string>("");
+export function LandingPage(props: LadingPageProps): React.ReactElement<LadingPageProps> {
+    const { lists } = props;
+    const [listName, setListName] = React.useState<string>("");
+    const [listDescription, setListDescription] = React.useState<string>("");
     const [renderList, setRenderList] = React.useState<ListState[]>([]);
 
     React.useEffect(() => {
-        const  {getListsRequests}= props;
+        const { getListsRequests } = props;
 
-         getListsRequests(GET_LISTS_REQUEST, undefined)
-    },[])
+        getListsRequests(GET_LISTS_REQUEST, undefined)
+    }, [])
     React.useEffect(() => {
-        const  {lists}= props;
-
         setRenderList([...lists])
-    },[props.lists])
+    }, [lists])
 
 
     const onSubmitListHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
@@ -65,8 +66,8 @@ export function LandingPage (props: LadingPageProps): React.ReactElement<LadingP
                 onInputListDescriptionChangeHandler={onInputListDescriptionChangeHandler}
                 onSubmitListHandler={onSubmitListHandler}
                 onCancelListHandler={onCancelListHandler}
-             />
-             {renderList.length>0 && <Table list={renderList} />}
+            />
+            {renderList.length > 0 && <Table list={renderList} />}
         </div>
     );
 }
