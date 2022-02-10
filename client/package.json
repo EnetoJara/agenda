@@ -156,7 +156,7 @@
     "@types/react-loadable": "^5.5.3",
     "@types/react-redux": "^7.1.8",
     "@types/react-router-dom": "^5.1.5",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "redux-devtools-extension": "^2.13.8",
     "tslib": "^1.11.2",
     "tsutils": "^3.17.1",
