@@ -30,7 +30,7 @@
     "compression": "1.7.4",
     "core-js": "3.6.5",
     "es6-promise": "4.2.8",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "helmet": "3.22.0",
     "http-status-codes": "1.4.0",
     "pg": "8.0.2",
